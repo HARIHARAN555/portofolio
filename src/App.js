@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-function App() {
+export default function App() {
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    const first =e.target.fname.value;
+    const last =e.target.lname.value;
+    console.log("First name = " +first,"Last name = " +last);
+
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+    <div>
+      <form  onSubmit={handleSubmit}>
+      <input type='text' name='fname' placeholder='First name'/><br/><br/>
+      <input type='text' name='lname' placeholder='Last name'/><br/><br/>
+      <button>Submit</button>
+      </form>
+
     </div>
   );
-}
-
-export default App;
+};
